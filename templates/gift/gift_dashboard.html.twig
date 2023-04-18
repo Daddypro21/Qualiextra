@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row mt-5 ">
+        <div class="col-md-4"><h2 class=""> Listes des dons</h2></div>
+        <div class="col-md-8"><a href="" class="ps-5 text-decoration-none">Nbre de dons : {{ nb_gift | length }} </a>   <a href="" class="ps-5 text-decoration-none">Dons recupérés: 0 </a>   <a href="" class="ps-5 text-decoration-none">Dons disponibles : {{ nb_gift | length }}  </a></div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-12">
+            
+            {% if all_gift is not empty %}
+               
+
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                            <th scope="col">Don</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             {% for gift in all_gift %}
+                            <tr class="table-succes">
+                            <th scope="row"><i class="fa fa-spinner fa-spin "></i></th>
+                            <td class="table-light">{{gift.kindOfDonation}}</td>
+                            <td class="table-primary">  {{gift.description}}</td>
+                            <td class="table-light">  <a href="{{path('app_gift_delete',{id : gift.id})}}"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>  
+            {% else %}
+
+                <p> L' historique des dons est vide</p>
+            {% endif %}
+        </div>
+
+
+{% endblock %}

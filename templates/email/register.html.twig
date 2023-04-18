@@ -1,0 +1,9 @@
+
+
+<h3>Un email vous a été envoyé :</h3>
+
+<p> Bonjour {{user.name}}</p>
+
+<p> <a href="{{ absolute_url(path('app_verify_user',{token:token }))}}" > Lien</a></p>
+<p>Ce lien expirera dans 3 heure</p>
+
