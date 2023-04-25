@@ -9,14 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HotelController extends AbstractController
 {
-    #[Route('/hotel/profil', name: 'app_hotel_profil')]
+    #[Route('Account/hotel/profil', name: 'app_hotel_profil')]
     public function profil(GiftRepository $giftRepo): Response
     {
-        $count_gift = $giftRepo->findAllGiftByUser($this->getUser());
+        $reservedGift = $giftRepo->findBy(['hotel'=>$this->getUser() , 'reserve'=> 1]);
+        $allGift = $giftRepo->findBy(['hotel'=>$this->getUser() , 'reserve'=> NULL]);
         $oneGift = $giftRepo->findOneGiftByUser($this->getUser());
         return $this->render('hotel/profil.html.twig', [
             'one_gift'=> $oneGift[0],
-            'all_gift'=>$count_gift
+            'all_gift'=>$allGift,
+            'reserved_gift'=> $reservedGift
         ]);
     }
+    
 }

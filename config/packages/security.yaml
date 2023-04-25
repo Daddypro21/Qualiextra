@@ -58,6 +58,9 @@ security:
 
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/gift, roles: ROLE_HOTEL }
+         - { path: ^/Account/hotel, roles: ROLE_HOTEL }
+         - { path: ^/Account/benevole, roles: ROLE_BENEVOLE }
         #  - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

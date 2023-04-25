@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GiftController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card text-center mt-5">
+                    <div class="card-header">
+                    Don
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{gift.kindOfDonation}}</h5>
+                        <p class="card-text">{{ gift.description}}</p>
+                        {% if gift.reserve != true %}
+                            <p> Ce don est disponible </p>
+                        {% else %}
+                            <p class="bg-success">Ce don a été reservé par {{ gift.benevole.name}} {{ gift.benevole.firstname}} </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer text-muted">
+                        A recuperer le {{gift.recoveryDate | date('d-m-Y')}}
+                    </div>
+            </div>   
+        </div>        
+    </div>
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card mt-5" style="width: 18rem;">
+                <div class="card-header bg-warning">
+                   Information sur le benevole 
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nom  : {{ gift.benevole.name}} {{ gift.benevole.firstname}}</li>
+        
+                    <li class="list-group-item">Tel : {{gift.benevole.numberPhone}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

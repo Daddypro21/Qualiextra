@@ -200,6 +200,7 @@ class RegistrationController extends AbstractController
             $payload = $jwt->getPayload($token);
 
             $user = $userRepo->find($payload->user_id);
+            
             if($user && !$user->getIsverified()){
                $user->setIsVerified(true);
                $em->flush($user);

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GiftController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card text-center mt-5">
+                    <div class="card-header">
+                    Don
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{gift.kindOfDonation}}</h5>
+                        <p class="card-text">{{ gift.description}}</p>
+                        {% if gift.reserve != true %}
+                        <a href="{{path('app_reserve_gift',{id:gift.id})}}" class="btn btn-primary">Reserver ce don</a>
+                        {% else %}
+                        <p class="bg-warning">Vous avez deja reservé ce don </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer text-muted">
+                        A recuperer le {{gift.recoveryDate | date('d-m-Y')}}
+                    </div>
+            </div>   
+        </div>        
+    </div>
+
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card mt-5" style="width: 18rem;">
+                <div class="card-header bg-warning">
+                   Information supplementaire
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nom de l'hotel : {{ gift.hotel.name}}</li>
+                    <li class="list-group-item">Address : {{ gift.hotel.address}}</li>
+                    <li class="list-group-item">Contact : {{gift.hotel.contactPhone}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

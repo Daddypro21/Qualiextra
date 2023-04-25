@@ -37,6 +37,9 @@ class Gift
     #[ORM\ManyToOne(inversedBy: 'gifts')]
     private ?Benevole $benevole = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $reserve = null;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
@@ -127,6 +130,18 @@ class Gift
     public function setBenevole(?Benevole $benevole): self
     {
         $this->benevole = $benevole;
+
+        return $this;
+    }
+
+    public function getReserve(): ?bool
+    {
+        return $this->reserve;
+    }
+
+    public function setReserve(?bool $reserve): self
+    {
+        $this->reserve = $reserve;
 
         return $this;
     }

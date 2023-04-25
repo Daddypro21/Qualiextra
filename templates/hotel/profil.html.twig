@@ -4,40 +4,46 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 me-2  mt-2 pt-5 bg-warning  ">
-            <h5 class="text-center "> Nom de l'hotel</h5>
-            <p class="mt-5"> <i class="fa-solid fa-table-columns"></i> <a href="{{path('app_hotel_dashboard')}}" class=" text-decoration-none text-dark "> Tableau de bord</a></p>
-            <p class="mt-2"> <i class="fa-solid fa-calendar"></i>  Calendrier </p>
-            <p class="mt-2"> <i class="fa-solid fa-sliders"></i>  Parametres</p>
-            <p class="mt-2"><i class="fa-solid fa-bell"></i>  Notifications</p>
-        </div>
-         <div class="col-md-8 ">
-            <div class=" rounded border border-secondary pt-2 ps-2 pb-2 pe-2 mt-2 mb-5">
-                <div class="rounded bg-light pt-5 ps-5 pb-5 pe-5 don">
-                    <h2 class="text-center text-muted"> Votre don</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 me-2  mt-2 pt-5 bg-warning  ">
+                <h5 class="text-center "> Nom de l'hotel</h5>
+                <p class="mt-5"> <i class="fa-solid fa-table-columns"></i> <a href="{{path('app_hotel_dashboard')}}" class=" text-decoration-none text-dark "> Tableau de bord</a></p>
+                <p class="mt-2"> <i class="fa-solid fa-calendar"></i>  Calendrier </p>
+                <p class="mt-2"> <i class="fa-solid fa-sliders"></i>  Parametres</p>
+                <p class="mt-2"><i class="fa-solid fa-bell"></i>  Notifications</p>
+            </div>
+            <div class="col-md-8 ">
+                <div class=" rounded border border-secondary pt-2 ps-2 pb-2 pe-2 mt-2 mb-5">
+                    <div class="rounded bg-light pt-5 ps-5 pb-5 pe-5 don">
+                        <h2 class="text-center text-muted"> Votre don</h2>
 
-                    <p class="font-weight-bold">{{ all_gift | length }} dons fait</p>
+                        <p class="font-weight-bold">{{ all_gift | length }} dons fait</p>
 
-                    <div class=" col-4 mx-auto">
-                        <a href="{{path('app_gift_edit',{id:one_gift.id})}}" class=" display-5 mb-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="" class="display-5 "><i class="fa-sharp fa-solid fa-repeat"></i></a>
+                        <div class=" col-4 mx-auto">
+                        {% if is_granted("editGift", one_gift) %}
+                            <a href="{{path('app_gift_edit',{id:one_gift.id})}}" class=" display-5 mb-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                            {% endif %}
+                            <a href="" class="display-5 "><i class="fa-sharp fa-solid fa-repeat"></i></a>
+                        </div>
                     </div>
+
+                    <div class="rounded bg-light crenau_don pt-5 pe-5 ps-5 pb-5 mt-2">
+                        {% if reserved_gift is empty %}
+                            <p class="text-center text-muted font-weight-bold"> Votre Crenaud de don n'est pas encore réservé </p>
+                        {% else %}
+                            <p class="text-center text-muted font-weight-bold"><a href="{{path("app_hotel_reserved_gift")}}"> {% if reserved_gift | length > 1 %}Vous avez {{ reserved_gift | length}} dons qui ont été réservés {% else %} Vous avez {{ reserved_gift | length}} don qui a été réservé{% endif %}</a></p>
+                        {% endif %}
+                    </div>
+                    
                 </div>
 
-                <div class=" rounded bg-light crenau_don pt-5 pe-5 ps-5 pb-5 mt-2">
-                    <p class="text-center text-muted font-weight-bold"> Votre Crenaud de don n'est pas encore réservé </p>
+                <div class="col-4 mx-auto mt-5 mb-5">
+                        <a href="{{path('app_gift_create')}}" class="btn btn-warning mx-auto w-100">DONNER</a>
                 </div>
-                
             </div>
-
-            <div class="col-4 mx-auto mt-5 mb-5">
-                    <a href="{{path('app_gift_create')}}" class="btn btn-warning mx-auto w-100">DONNER</a>
-            </div>
-         </div>
+        </div>
     </div>
-</div>
 
 
 
