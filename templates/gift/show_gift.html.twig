@@ -19,7 +19,7 @@
                         <a href="{{path('app_gift_delete',{id:gift.id})}}" class="btn btn-primary">Supprimer</a>
                         <a href="{{path('app_gift_edit',{id:gift.id})}}" class="btn btn-primary">Modifier</a>
                         {% else %}
-                        <p class="bg-warning">Vous avez deja reservé ce don </p>
+                        <p class="bg-danger pe-2 ps-2 pt-2 pb-2">Ce don a été déjà réservé</p>
                         {% endif %}
                     </div>
                     <div class="card-footer text-muted">
@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <div class="card mt-5" style="width: 18rem;">
-                <div class="card-header bg-warning">
+                <div class="card-header ">
                    Information supplementaire
                 </div>
                 {% if gift.benevole.id is defined %}

@@ -5,11 +5,12 @@
 {% block body %}
 
 
-<div class="container">
-    <h3 class="mt-2"> <a href="{{path('app_benevole_dashboard')}}" ><i class="fa-solid fa-arrow-left"></i></a></h2>
+<div class="container bg-light">
+    <h4 class="mt-2"> <a href="{{path('app_benevole_dashboard')}}" ><i class="fa-solid fa-arrow-left"></i></a></h4>
+    <h1 class="">Liste des dons Reservés</h1>
     <div class="row mt-5 ">
-        <div class="col-md-4"><h2 class="">Listes des dons Reservés</h2></div>
-        <div class="col-md-8"><a href="" class="ps-5 text-decoration-none">Nbre de dons reservés: {{ gifts | length }} </a> <a href="" class="ps-5 text-decoration-none">Dons disponibles : {{ gifts | length }}  </a></div>
+        <div class="col-md-4"><h4 class="">Don à récupérer</h4></div>
+        <div class="col-md-8"><a href="" class="ps-5 text-decoration-none text-dark">Nbre de dons reservés: {{ gifts | length }} </a> </div>
     </div>
     <div class="row mt-5 mb-5">
         <div class="col-md-12">
@@ -24,6 +25,7 @@
                             <th scope="col">Voir</th>
                             <th scope="col">Type</th>
                             <th scope="col">Description</th>
+                            <th scope="col">Adresse</th>
                             <th scope="col">Date de recuperation</th>
                             </tr>
                         </thead>
@@ -34,7 +36,8 @@
                                     <th scope="row"><a href="{{path('app_show_gift',{id : gift.id})}}"><i class="fa-solid fa-eye"></i></a></th>
                                     <td class="table-light text-muted"><b>{{gift.kindOfDonation}}</b></td>
                                     <td class="table-primary  "> <i><small class="text-muted  "> {{gift.description}}</small></i></td> 
-                                    <td class="table-light"> <small class="text-muted  ">{{ gift.recoveryDate|date('Y-m-d')}}</small></td>
+                                    <td class="table-primary"> <i> <small class="text-muted">  {{gift.hotel.address}}</small></i></td> 
+                                    <td class="table-primary"> <small class="text-muted  ">{{ gift.recoveryDate|date('Y-m-d')}}</small></td>
                                     </tr>
                                     
                                

@@ -11,9 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
+#[Route('Account/')]
 class BenevoleController extends AbstractController
 {
-    #[Route('Account/benevole/dashboard', name: 'app_benevole_dashboard')]
+    #[Route('benevole/dashboard', name: 'app_benevole_dashboard')]
     public function dashboard( GiftRepository $giftRepo): Response
     {
         $gifts = $giftRepo->findBy(['reserve'=> NULL]);
@@ -23,7 +24,7 @@ class BenevoleController extends AbstractController
         ]);
     }
 
-    #[Route('Account/benevole/show-gift/{id}', name: 'app_show_gift')]
+    #[Route('benevole/show-gift/{id}', name: 'app_show_gift')]
     public function showGift(Gift $gift ,GiftRepository $giftRepo)
     {
         $gift = $giftRepo->findOneBy(['id'=> $gift->getId()]);
@@ -33,7 +34,7 @@ class BenevoleController extends AbstractController
 
     }
 
-    #[Route('Account/benevole/reserve-gift/{id}', name: 'app_reserve_gift')]
+    #[Route('benevole/reserve-gift/{id}', name: 'app_reserve_gift')]
     public function reserveGift(Gift $gift, EntityManagerInterface $em)
     {
        $gift->setReserve(true);
@@ -43,7 +44,7 @@ class BenevoleController extends AbstractController
 
 
     }
-    #[Route('Account/benevole/reserved-gift', name:'app_reserved_gift')] 
+    #[Route('benevole/reserved-gift', name:'app_reserved_gift')] 
     public function reservedGift(GiftRepository $giftRepo)
     {
         $gifts = $giftRepo->findBy(['reserve'=> 1, 'benevole'=>$this->getUser()]);

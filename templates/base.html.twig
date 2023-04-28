@@ -18,6 +18,19 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <style>
+          main{
+           background-color: rgb(115, 198, 182);
+          }
+          .button_1{
+            background-color: rgb(163, 228, 215);
+            
+          }
+          .button_1:hover{
+            background :#F39C12 ;
+          }
+        </style>
     </head>
     <body>
         {# ....navbar..... #}
@@ -39,7 +52,7 @@
           {% if app.user %}
         <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img src="https://media.licdn.com/dms/image/C4D03AQGQnaJHlMv9Gg/profile-displayphoto-shrink_800_800/0/1647413990843?e=2147483647&v=beta&t=xNSFPywLeLwhDu1S-gorJoQEJ9Fr3fd3s52TNMvK0sQ" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li>{% if app.user.roles[0] is same as 'ROLE_HOTEL' %}<a class="dropdown-item" href="{{path('app_hotel_profil')}}">Compte</a>{% else %}<a class="dropdown-item" href="{{path('app_benevole_dashboard')}}">Compte</a>{% endif %}</li>

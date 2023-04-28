@@ -18,7 +18,7 @@
                         {% if gift.reserve != true %}
                         <a href="{{path('app_reserve_gift',{id:gift.id})}}" class="btn btn-primary">Reserver ce don</a>
                         {% else %}
-                        <p class="bg-warning">Vous avez deja reservé ce don </p>
+                        <p class="bg-success pe-2 ps-2 pt-2 pb-2">Vous avez deja reservé ce don </p>
                         {% endif %}
                     </div>
                     <div class="card-footer text-muted">
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-6 mx-auto">
             <div class="card mt-5" style="width: 18rem;">
-                <div class="card-header bg-warning">
+                <div class="card-header">
                    Information supplementaire
                 </div>
                 <ul class="list-group list-group-flush">
