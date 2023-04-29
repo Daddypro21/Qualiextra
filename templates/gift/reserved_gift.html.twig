@@ -5,7 +5,7 @@
 {% block body %}
 
 
-<div class="container bg-light">
+<div class="container bg-light pt-5">
     <h4 class="mt-2"> <a href="{{path('app_hotel_dashboard')}}" ><i class="fa-solid fa-arrow-left text-muted"></i></a></h4>
     <div class="row mt-5 ">
         <div class="col-md-4"><h4 class="">Listes des dons Reservés</h4></div>
@@ -34,7 +34,7 @@
                                     <th scope="row" class=""><a href="{{path('app_show_reserved_gift',{id : gift.id})}}"><i class="fa-solid fa-eye "></i></a></th>
                                     <td class="table-light text-muted"><b>{{gift.kindOfDonation}}</b></td>
                                     <td class="table-primary  "> <i><small class="text-muted  "> {{gift.description}}</small></i></td> 
-                                    <td class="table-primary"> <small class="text-muted  ">{{ gift.recoveryDate|date('Y-m-d')}}</small></td>
+                                    <td class="table-primary"> <i><small class="text-muted  ">{{ gift.recoveryDate|date('Y-m-d')}}</small></i></td>
                                     </tr>
                                     
                                
@@ -43,9 +43,10 @@
                     </table>  
             {% else %}
 
-                <p class="text-center bg-warning"> Pas de don reservé pour l'instant</p>
+                <p class="text-center bg-warning pe-5 pt-5 pb-5 ps-5"> Pas de don reservé pour l'instant</p>
             {% endif %}
         </div>
-
+    </div>
+</div>
 
 {% endblock %}

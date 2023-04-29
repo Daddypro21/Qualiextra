@@ -10,7 +10,8 @@
         {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> #}
         {# <script src="https://kit.fontawesome.com/0b40e976a8.js" crossorigin="anonymous"></script> #}
          <script src="https://kit.fontawesome.com/51f34b2637.js" crossorigin="anonymous"></script>
-
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ asset('css/mdb.min.css')}}">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -22,6 +23,7 @@
         <style>
           main{
            background-color: rgb(115, 198, 182);
+           width:100%;
           }
           .button_1{
             background-color: rgb(163, 228, 215);
@@ -29,18 +31,37 @@
           }
           .button_1:hover{
             background :#F39C12 ;
+            color:white;
+          }
+    
+         .border_fild:focus{
+             /*border: 5px solid rgb(163, 228, 215); */
+             border: 5px solid rgb(163, 228, 215);
+             border-color:none;
+          }
+          .border_fild{
+           
+          }
+          footer{
+            background-color: rgb(115, 198, 182);
+          }
+          li{
+            list-style-type: none;
+          }
+          .lien_hover:hover{
+            color:#F39C12;
           }
         </style>
     </head>
     <body>
         {# ....navbar..... #}
 
-<main>
+<main class="mb-5">
   <header class="p-3 mb-3 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center me-5 mb-2 mb-lg-0 text-dark text-decoration-none">
-            QUALIEXTRA
+           <b> QUALIEXTRA</b>
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -61,8 +82,8 @@
           </ul>
         </div>
         {% else %}
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{{path('app_login')}}" class="nav-link px-2 link-dark">Se connecter</a></li>
+          <ul class="">
+            <li><b><a href="{{path('app_login')}}" class="nav-link px-2 link-dark lien_hover">Se connecter</a></b></li>
           </ul>
         {% endif %}
       </div>
@@ -73,5 +94,7 @@
         {# ..... #}
         {% block body %}{% endblock %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="{{asset('js/mdb.min.js')}}"></script>
+<footer class="pb-5 ">footer</footer>
     </body>
 </html>

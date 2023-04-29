@@ -30,7 +30,7 @@
 
                     <div class="rounded bg-light crenau_don pt-5 pe-5 ps-5 pb-5 mt-2">
                         {% if reserved_gift is empty %}
-                            <p class="text-center text-muted font-weight-bold"> Votre Crenaud de don n'est pas encore réservé </p>
+                            <p class="text-center text-muted font-weight-bold"> Votre Creneau de don n'est pas encore réservé </p>
                         {% else %}
                             <p class="text-center text-muted font-weight-bold"><a href="{{path("app_hotel_reserved_gift")}}"> {% if reserved_gift | length > 1 %}Vous avez {{ reserved_gift | length}} dons qui ont été réservés {% else %} Vous avez {{ reserved_gift | length}} don qui a été réservé{% endif %}</a></p>
                         {% endif %}
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="col-4 mx-auto mt-5 mb-5">
-                        <a href="{{path('app_gift_create')}}" class="btn btn-success mx-auto w-100">DONNER</a>
+                        <a href="{{path('app_gift_create')}}" class="btn button_1 mx-auto w-100">DONNER</a>
                 </div>
             </div>
         </div>

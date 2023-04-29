@@ -5,12 +5,14 @@
 {% block body %}
 
 
-<div class="container bg-light">
+<div class="container bg-light pt-5 mt-5">
      <h1 class="">Tableau de bord</h1>
+
     <div class="row mt-5 ">
         <div class="col-md-4"><h4 class=""> Listes des dons</h4></div>
         <div class="col-md-8"><a href="" class="ps-5 text-decoration-none text-dark">Nbre de dons : {{ gifts | length }} </a>   <a href="" class="ps-5 text-decoration-none text-dark">Dons disponibles : {{ gifts | length }}  </a>         <a href="{{path('app_reserved_gift')}}" class=" btn button_1 ms-5 text-decoration-none">Voir dons Reservés</a></div>
     </div>
+
     <div class="row mt-5 mb-5">
         <div class="col-md-12">
             
@@ -30,7 +32,7 @@
                         <tbody>
                              {% for gift in gifts %}
             
-                                    <tr class="table-succes">
+                                    <tr class="table-succes ">
                                     <th scope="row"> <a href="{{path('app_show_gift',{id : gift.id})}}"><i class="fa-solid fa-eye"></i></a></th>
                                     <td class="table-light text-muted"><b>{{gift.kindOfDonation}}</b></td>
                                     <td class="table-warning"><i> <small class="text-muted"> {{gift.description}}</small></i></td> 
@@ -43,9 +45,9 @@
                     </table>  
             {% else %}
 
-                <p> L' historique des dons est vide</p>
+                <p class="text-center"> Il n' y a pas de don disponible pour l'heure</p>
             {% endif %}
         </div>
-
-
+    </div>
+</div>
 {% endblock %}

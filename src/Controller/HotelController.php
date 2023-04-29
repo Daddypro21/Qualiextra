@@ -15,8 +15,13 @@ class HotelController extends AbstractController
         $reservedGift = $giftRepo->findBy(['hotel'=>$this->getUser() , 'reserve'=> 1]);
         $allGift = $giftRepo->findBy(['hotel'=>$this->getUser() , 'reserve'=> NULL]);
         $oneGift = $giftRepo->findOneGiftByUser($this->getUser());
+        $one = "";
+        if(!empty($oneGift)){
+            $one = $oneGift[0];
+        }
+
         return $this->render('hotel/profil.html.twig', [
-            'one_gift'=> $oneGift[0],
+            'one_gift'=> $one,
             'all_gift'=>$allGift,
             'reserved_gift'=> $reservedGift
         ]);

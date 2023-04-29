@@ -6,8 +6,8 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-6 mx-auto">
+    {# <div class="row">
+        <div class="col-6 mx-auto"> #}
             <div class="card text-center mt-5">
                     <div class="card-header">
                     Don
@@ -16,22 +16,22 @@
                         <h5 class="card-title">{{gift.kindOfDonation}}</h5>
                         <p class="card-text">{{ gift.description}}</p>
                         {% if gift.reserve != true %}
-                        <a href="{{path('app_gift_delete',{id:gift.id})}}" class="btn btn-primary">Supprimer</a>
-                        <a href="{{path('app_gift_edit',{id:gift.id})}}" class="btn btn-primary">Modifier</a>
+                        <a href="{{path('app_gift_delete',{id:gift.id})}}" class="btn button_1">Supprimer</a>
+                        <a href="{{path('app_gift_edit',{id:gift.id})}}" class="btn button_1">Modifier</a>
                         {% else %}
-                        <p class="bg-danger pe-2 ps-2 pt-2 pb-2">Ce don a été déjà réservé</p>
+                        <p class="bg-danger pe-5 ps-5 pt-5 pb-5">Ce don a été déjà réservé</p>
                         {% endif %}
                     </div>
                     <div class="card-footer text-muted">
                         A recuperer le {{gift.recoveryDate | date('d-m-Y')}}
                     </div>
             </div>   
-        </div>        
-    </div>
+        {# </div>        
+    </div> #}
 
-    <div class="row">
-        <div class="col-6 mx-auto">
-            <div class="card mt-5" style="width: 18rem;">
+    {# <div class="row">
+        <div class="col-6 mx-auto"> #}
+            <div class="card mt-5 mb-5" style="width: 18rem;">
                 <div class="card-header ">
                    Information supplementaire
                 </div>
@@ -44,8 +44,8 @@
                     <p class="text-center">Aucun</p>
                 {% endif %}
             </div>
-        </div>
-    </div>
+        {# </div>
+    </div> #}
 
 </div>
 {% endblock %}
