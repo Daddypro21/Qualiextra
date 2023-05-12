@@ -63,7 +63,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $hash = $passwordHasher->hashPassword($hotel , 
-            'azerty');
+            '#azertyAZERTYquartyQUARTY#');
             $hotel->setPassword($hash);
             $mail = $hotel->getEmail();
             $em->persist($hotel);

@@ -6,11 +6,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3 me-2  mt-2 pt-5 bg-success  ">
-                <h5 class="text-center "> Nom de l'hotel</h5>
+            <div class="col-md-3 me-2  mb-2 mt-2 pt-5 side_bar  ">
+                <h5 class=" "> {{app.user.name}}</h5>
                 <p class="mt-5"> <i class="fa-solid fa-table-columns"></i> <a href="{{path('app_hotel_dashboard')}}" class=" text-decoration-none text-dark "> Tableau de bord</a></p>
                 <p class="mt-2"> <i class="fa-solid fa-calendar"></i>  Calendrier </p>
-                <p class="mt-2"> <i class="fa-solid fa-sliders"></i>  Parametres</p>
+                <p class="mt-2"> <a href="{{path('app_hotel_edit',{id:app.user.id} )}}" class=" text-decoration-none text-dark" ><i class="fa-solid fa-user-pen"></i>  Modifier mon compte</a></p>
                 <p class="mt-2"><i class="fa-solid fa-bell"></i>  Notifications</p>
             </div>
             <div class="col-md-8 ">

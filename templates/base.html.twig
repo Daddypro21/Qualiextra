@@ -21,6 +21,10 @@
         {% endblock %}
 
         <style>
+          body{
+            margin:0;
+            height:100%;
+          }
           main{
            background-color: rgb(115, 198, 182);
            width:100%;
@@ -29,19 +33,23 @@
             background-color: rgb(163, 228, 215);
             
           }
+          .button_2{
+            background-color: rgb(163, 228, 215);
+          }
+          .button_2:hover{
+            background-color:rgb(97, 122, 85);
+            color:white;
+          }
           .button_1:hover{
             background :#F39C12 ;
             color:white;
           }
-    
          .border_fild:focus{
-             /*border: 5px solid rgb(163, 228, 215); */
-             border: 5px solid rgb(163, 228, 215);
-             border-color:none;
+             border: 5px solid rgb(163, 228, 215); 
+            /* border: 2px solid rgb(97, 122, 85);*/
+             
           }
-          .border_fild{
-           
-          }
+        
           footer{
             background-color: rgb(115, 198, 182);
           }
@@ -50,6 +58,18 @@
           }
           .lien_hover:hover{
             color:#F39C12;
+          }
+          .form_hotel{
+            width:50%;
+          }
+          .bloc{
+            background :linear-gradient(45deg, #FFF8D6 0 50%, #F7E1AE 50% 100%);
+          }
+          .side_bar{
+            background-color : #FFF8D6;
+          }
+          choices{
+              
           }
         </style>
     </head>
@@ -95,6 +115,15 @@
         {% block body %}{% endblock %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="{{asset('js/mdb.min.js')}}"></script>
-<footer class="pb-5 ">footer</footer>
+<footer class="pb-5 pt-5">
+  <div class="row">
+    <div class="col-4 ps-5">
+      <a href="/" class="text-dark text-decoration-none">
+        <b>QUALIEXTRA</b>
+        </a>
+    </div>
+    <div class="col-8 mx-auto"><a href=""><i class="fa-brands fa-facebook text-dark"></i></a><a href=""> <i class="fa-brands fa-instagram text-dark "></i></a> <a href=""> <i class="fa-brands fa-linkedin text-dark"></i></a></div>
+  </div>
+</footer>
     </body>
 </html>

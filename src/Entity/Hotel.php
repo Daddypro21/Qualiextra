@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\HotelRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
@@ -18,6 +19,7 @@ class Hotel extends User
     private ?string $address = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex('/^0|(\\+33)|(0033)[1-9][0-9]{8}/', message:" Entrez un numero valide")]
     private ?string $contactPhone = null;
 
     #[ORM\Column(length: 255)]
@@ -27,6 +29,7 @@ class Hotel extends User
     private ?string $managerFirstName = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex('/^0|(\\+33)|(0033)[1-9][0-9]{8}/', message:" Entrez un numero valide")]
     private ?string $managerPhone = null;
 
     #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Gift::class, orphanRemoval: true)]

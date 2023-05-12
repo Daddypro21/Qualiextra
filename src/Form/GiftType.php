@@ -16,16 +16,16 @@ class GiftType extends AbstractType
     {
         $builder
         ->add('kindOfDonation', ChoiceType::class,[
-                'label'=>'Type de don',
+                'label'=>'Type de don','attr'=>['class'=>'border_fild'],
                 'choices' => [
                     'Nourriture' => "NOURRITURE",
                     'Fourniture' => "FOURNITURE", 
                     'Nourriture et Fourniture'=>" NOURRITURE ET FOURNITURE",
-                    'Autres'=>"AUTRES"
+                    'Autres'=>"AUTRES",
                 ],
             ])
         ->add('description', TextareaType::class,[
-        'label' => 'Faites une description détaillé du don'])
+        'label' => 'Faites une description détaillé du don','attr'=>['class'=>'border_fild']])
         ->add('recoveryDate')
         ->add('availablity')
        

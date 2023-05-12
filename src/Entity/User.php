@@ -17,7 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\InheritanceType("JOINED")]
 #[ORM\DiscriminatorColumn(name:"type",type:"string")]
 #[ORM\DiscriminatorMap(['benevole' =>Benevole::class,'hotel' => Hotel::class ,
-'account'=> Account::class ])]
+'account'=> Account::class , 'admin'=>Admin::class])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -49,6 +49,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\EqualTo(propertyPath: "password", message : "Le mot de passe de confirmation 
     doit etre identique au mot de passe entré")]
     private ?string $confirm_password = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $isVerified = null;
 
     public function getId(): ?int
     {
@@ -148,5 +151,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(?bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
     }
 }

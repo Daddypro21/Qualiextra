@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\BenevoleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BenevoleRepository::class)]
@@ -17,6 +18,7 @@ class Benevole extends User
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex('/^0|(\\+33)|(0033)[1-9][0-9]{8}/', message:" Entrez un numero valide")]
     private ?string $numberPhone = null;
 
     #[ORM\OneToMany(mappedBy: 'benevole', targetEntity: Gift::class)]
