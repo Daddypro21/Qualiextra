@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GiftController!{% endblock %}
+{% block title %}Tableau de bord - Don reservé{% endblock %}
 
 {% block body %}
 
-
+{% if app.user.isVerified is defined and  app.user.isVerified == 1 %}
 <div class="container">
     {# <div class="row"> #}
         {# <div class="col-6 mx-auto"> #}
@@ -22,7 +22,7 @@
                         {% endif %}
                     </div>
                     <div class="card-footer text-muted">
-                        A recuperer le {{gift.recoveryDate | date('d-m-Y')}}
+                        A recuperer le {{gift.recoveryDate | date('d-m-Y')}} {% if gift.time is defined %} à {{gift.time | date('H:i:s') }}{% endif %}
                     </div>
             </div>   
         {# </div>         #}
@@ -44,4 +44,7 @@
     </div> #}
 
 </div>
+{% else %}
+    <h2 class="text-center pe-2 pt-2 pb-2 ps-2 bg-warning"> Activer votre compte </h2>
+{% endif %}
 {% endblock %}

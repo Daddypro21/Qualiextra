@@ -40,9 +40,13 @@ class Gift
     #[ORM\Column(nullable: true)]
     private ?bool $reserve = null;
 
+    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
+    private ?\DateTimeImmutable $time = null;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
+        $this->time = new DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -142,6 +146,18 @@ class Gift
     public function setReserve(?bool $reserve): self
     {
         $this->reserve = $reserve;
+
+        return $this;
+    }
+
+    public function getTime(): ?\DateTimeImmutable
+    {
+        return $this->time;
+    }
+
+    public function setTime(\DateTimeImmutable $time): self
+    {
+        $this->time = $time;
 
         return $this;
     }

@@ -18,6 +18,7 @@ class GiftController extends AbstractController
     #[Route('gift/dashboard',name:'app_hotel_dashboard')]
     public function giftDashboard( GiftRepository $giftRepo)
     {
+        dd($this->getUser()->getIsVerified());
         $allGift = $giftRepo->findBy(['hotel'=> $this->getUser(),'reserve'=> NULL]);
         $nbGift = $giftRepo-> findAllGiftByUser($this->getUser());
         return $this->render('gift/gift_dashboard.html.twig', [

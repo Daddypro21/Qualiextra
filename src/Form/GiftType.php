@@ -27,6 +27,7 @@ class GiftType extends AbstractType
         ->add('description', TextareaType::class,[
         'label' => 'Faites une description détaillé du don','attr'=>['class'=>'border_fild']])
         ->add('recoveryDate')
+        ->add('time')
         ->add('availablity')
        
     ;

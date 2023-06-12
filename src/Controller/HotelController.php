@@ -32,21 +32,28 @@ class HotelController extends AbstractController
             'reserved_gift'=> $reservedGift
         ]);
     }
-    #[Route('hotel/edit', name :'app_hotel_edit')]
-    public function editHotel( Hotel $hotel , Request $request ,
-    EntityManagerInterface $em,UserPasswordHasherInterface $passwordHasher)
-    {
+
+    /* 
+        Cette route ou methode permet de modifier le compte de l'hotel ,
+        il faudrait prendre en charge le mot de passe,le recupérer en clair sinon
+         vous obtiendrez une erreur suite à la contrainte definit dans l'entité User au niveau de 
+         l'attribut mot de passe (password) .
+    */
+    // #[Route('hotel/edit', name :'app_hotel_edit')]
+    // public function editHotel( Hotel $hotel , Request $request ,
+    // EntityManagerInterface $em,UserPasswordHasherInterface $passwordHasher)
+    // {
         
      
-        $form = $this->createForm( HotelType::class,$hotel);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $em->flush($hotel);
-            dd($hotel);
-            return $this->redirectToRoute('app_hotel_profil');
-        }
+    //     $form = $this->createForm( HotelType::class,$hotel);
+    //     $form->handleRequest($request);
+    //     if($form->isSubmitted() && $form->isValid()){
+    //         $em->flush($hotel);
+    //         dd($hotel);
+    //         return $this->redirectToRoute('app_hotel_profil');
+    //     }
 
-        return $this->render('hotel/edit.html.twig',['form'=>$form->createView()]);
-    }
+    //     return $this->render('hotel/edit.html.twig',['form'=>$form->createView()]);
+    // }
     
 }

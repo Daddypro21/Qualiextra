@@ -4,6 +4,7 @@
 
 {% block body %}
 
+{% if app.user.isVerified is defined and  app.user.isVerified == 1 %}
 
 <div class="container bg-light pt-5">
     <h4 class="mt-2"> <a href="{{path('app_hotel_dashboard')}}" ><i class="fa-solid fa-arrow-left text-muted"></i></a></h4>
@@ -34,7 +35,7 @@
                                     <th scope="row" class=""><a href="{{path('app_show_reserved_gift',{id : gift.id})}}"><i class="fa-solid fa-eye "></i></a></th>
                                     <td class="table-light text-muted"><b>{{gift.kindOfDonation}}</b></td>
                                     <td class="table-primary  "> <i><small class="text-muted  "> {{gift.description}}</small></i></td> 
-                                    <td class="table-primary"> <i><small class="text-muted  ">{{ gift.recoveryDate|date('Y-m-d')}}</small></i></td>
+                                    <td class="table-primary"> <i><small class="text-muted  ">{{ gift.recoveryDate|date('Y-m-d')}} {% if gift.time is defined %} à {{gift.time | date('H:i:s') }}{% endif %}</small></i></td>
                                     </tr>
                                     
                                
@@ -48,5 +49,7 @@
         </div>
     </div>
 </div>
-
+{% else %}
+    <h2 class="text-center pe-2 pt-2 pb-2 ps-2 bg-warning"> Activer votre compte </h2>
+{% endif %}
 {% endblock %}

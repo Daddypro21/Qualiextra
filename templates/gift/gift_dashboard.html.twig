@@ -3,6 +3,7 @@
 {% block title %}Tableau de bord{% endblock %}
 
 {% block body %}
+{% if app.user.isVerified is defined and  app.user.isVerified == 1 %}
 
 <div class="container bg-light pt-5">
         <h1 class="text-center">Tableau de Bord</h1>
@@ -32,7 +33,7 @@
                             <th scope="row"><a href="{{path('app_gift_show',{id:gift.id})}}"><i class="fa-solid fa-eye"></i></a></th>
                             <td class="table-light"><b><small class="text-muted">{{gift.kindOfDonation}}<small class="text-muted"></b></td>
                             <td class="table-warning"> <i><small class="text-muted"> {{gift.description}}</small></i></td>
-                            <td class="table-warning"><i><small class="text-muted">{{ gift.recoveryDate | date('d-m-Y')}}</small></i></td>
+                            <td class="table-warning"><i><small class="text-muted">{{ gift.recoveryDate | date('d-m-Y')}} {% if gift.time is defined %} à {{gift.time | date('H:i:s') }}{% endif %}</small></i></td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -44,4 +45,7 @@
         </div>
 </div>
 </div>
+{% else %}
+<h2 class="text-center pe-2 pt-2 pb-2 ps-2"> Activer votre compte</h2>
+{% endif %}
 {% endblock %}

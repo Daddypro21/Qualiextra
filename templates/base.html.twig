@@ -111,19 +111,29 @@
   </header>
 
 </main>
-        {# ..... #}
-        {% block body %}{% endblock %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<script src="{{asset('js/mdb.min.js')}}"></script>
-<footer class="pb-5 pt-5">
-  <div class="row">
-    <div class="col-4 ps-5">
-      <a href="/" class="text-dark text-decoration-none">
-        <b>QUALIEXTRA</b>
-        </a>
-    </div>
-    <div class="col-8 mx-auto"><a href=""><i class="fa-brands fa-facebook text-dark"></i></a><a href=""> <i class="fa-brands fa-instagram text-dark "></i></a> <a href=""> <i class="fa-brands fa-linkedin text-dark"></i></a></div>
-  </div>
-</footer>
+       
+
+      <div class="container">
+          {% for type, messages in app.flashes %}
+                      {% for message in messages %}
+                          <div class="alert alert-{{ type }}" role="alert">
+                             <h3 class="text-center"> {{ message }} </h3>
+                          </div>
+                      {% endfor %}
+          {% endfor %}
+      </div>
+      {% block body %}{% endblock %}
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      <script src="{{asset('js/mdb.min.js')}}"></script>
+      <footer class="pb-5 pt-5">
+        <div class="row">
+          <div class="col-4 ps-5">
+            <a href="/" class="text-dark text-decoration-none">
+              <b>QUALIEXTRA</b>
+              </a>
+          </div>
+          <div class="col-8 mx-auto"><a href=""><i class="fa-brands fa-facebook text-dark"></i></a><a href=""> <i class="fa-brands fa-instagram text-dark "></i></a> <a href=""> <i class="fa-brands fa-linkedin text-dark"></i></a></div>
+        </div>
+      </footer>
     </body>
 </html>

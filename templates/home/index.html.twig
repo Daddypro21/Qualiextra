@@ -3,6 +3,9 @@
 {% block title %}Qualiextra - Home{% endblock %}
 
 {% block body %}
+        {% if app.user.isVerified is defined and  app.user.isVerified == 1 %}
+            {{dump("ça marche ")}}
+        {% endif %}
 
     <h1 class="text-center text-muted mt-5 ms-5 mb-5"><b>Bienvenue sur la plateforme Qualiextra</b></h1>
     <div class="container mb-5">
